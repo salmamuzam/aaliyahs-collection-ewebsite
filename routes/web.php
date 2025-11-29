@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Livewire\ProductList;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +23,5 @@ route::get('/home', [HomeController::class, 'index']);
 
 // When admin url is called, it will check whether the user is logged in, if the user is logged out, the user will be directed to the login page
 route::get('/admin', [HomeController::class, 'page'])->middleware(['auth', 'admin']);
+
+Route::get('products', ProductList::class)->name('products');
